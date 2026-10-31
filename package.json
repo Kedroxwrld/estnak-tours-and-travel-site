@@ -1,0 +1,28 @@
+{
+  "name": "estnak-tours-and-travel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Estnak Tours and Travel — a responsive tours and travel website built with HTML5, Tailwind CSS and vanilla JavaScript.",
+  "type": "module",
+  "scripts": {
+    "build:html": "node scripts/build-html.mjs",
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/styles.css --minify",
+    "build": "npm run build:html && npm run build:css",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/css/styles.css --watch",
+    "serve": "npx --yes serve ."
+  },
+  "keywords": [
+    "tours",
+    "travel",
+    "uganda",
+    "safari",
+    "tailwindcss",
+    "static-site"
+  ],
+  "author": "Estnak Tours and Travel",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
