@@ -543,3 +543,30 @@ input[type="range"].price-range::-moz-range-thumb {
     transform: none;
   }
 }
+
+@media (max-width: 639px) {
+  [class~="text-[9px]"],
+  [class~="text-[10px]"],
+  [class~="text-[11px]"],
+  .field-label,
+  .eyebrow,
+  .footer-heading {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  [class~="text-xs"] {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+
+  :is(
+    [class~="text-white/40"],
+    [class~="text-white/45"],
+    [class~="text-white/50"],
+    [class~="text-white/55"],
+    [class~="text-white/60"]
+  ) {
+    color: rgb(255 255 255 / 0.82);
+  }
+}

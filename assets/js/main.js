@@ -1,11 +1,12 @@
 /* =========================================================
-   Pearl Voyages — site interactions
+   Estnak Tours and Travel — site interactions
    Vanilla JS, no dependencies.
    ========================================================= */
 (() => {
   "use strict";
 
   const WHATSAPP_NUMBER = "256774818301";
+  const BUSINESS_EMAIL = "bnasa77@gmail.com";
   const whatsappOrderUrl = (message) =>
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -497,6 +498,10 @@
           <p class="eyebrow">Start planning</p>
           <h2 id="booking-heading" class="mt-3 pr-10 text-2xl font-semibold sm:text-3xl">Request this tour</h2>
           <p class="mt-2 text-sm leading-relaxed text-slate-500">No payment now. WhatsApp opens with your order details so you can send them directly to our team.</p>
+          <div class="mt-3 rounded-xl bg-mist px-4 py-3 text-xs leading-relaxed text-slate-600">
+            <p class="font-semibold text-ink">Your travel team: Nakibuule Esther, Founder &amp; Managing Director</p>
+            <p class="mt-1">Call <a href="tel:+256774818301" class="font-semibold text-royal-700 underline underline-offset-2">+256 774 818 301</a> or email <a href="mailto:${BUSINESS_EMAIL}" class="font-semibold text-royal-700 underline underline-offset-2">${BUSINESS_EMAIL}</a>.</p>
+          </div>
 
           <div class="mt-5 flex items-center justify-between gap-4 rounded-2xl border border-royal-100 bg-royal-50/70 p-4">
             <div class="min-w-0">
@@ -516,12 +521,12 @@
               </div>
               <div>
                 <label class="field-label" for="bk-email">Email address</label>
-                <input class="field-input" id="bk-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+                <input class="field-input" id="bk-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required />
                 <p class="field-error" data-error-for="email" hidden></p>
               </div>
               <div>
                 <label class="field-label" for="bk-phone">Phone / WhatsApp</label>
-                <input class="field-input" id="bk-phone" name="phone" type="tel" autocomplete="tel" placeholder="+256 774 818 301" required />
+                <input class="field-input" id="bk-phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone or WhatsApp number" required />
                 <p class="field-error" data-error-for="phone" hidden></p>
               </div>
               <div>
