@@ -5,7 +5,9 @@
 (() => {
   "use strict";
 
-  const WHATSAPP_NUMBER = "256700123456";
+  const WHATSAPP_NUMBER = "256774818301";
+  const whatsappOrderUrl = (message) =>
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const PHONE_RE = /^[+()\d][\d\s().-]{6,}$/;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -145,14 +147,7 @@
   // Services dropdown: hover on pointer devices, click/tap + keyboard everywhere.
   const navDropdown = qs("[data-nav-dropdown]");
   if (navDropdown) {
-    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-      on(navDropdown, "mouseenter", () => {
-        navDropdown.open = true;
-      });
-      on(navDropdown, "mouseleave", () => {
-        navDropdown.open = false;
-      });
-    }
+    const navSummary = qs("summary", navDropdown);
     on(document, "click", (event) => {
       if (!navDropdown.contains(event.target)) navDropdown.open = false;
     });
@@ -161,6 +156,13 @@
         navDropdown.open = false;
       })
     );
+    on(document, "keydown", (event) => {
+      if (event.key === "Escape" && navDropdown.open) {
+        event.preventDefault();
+        navDropdown.open = false;
+        navSummary?.focus();
+      }
+    });
   }
 
   // Language selector
@@ -491,10 +493,10 @@
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/></svg>
         </button>
 
-        <div data-booking-form-wrap>
+        <div>
           <p class="eyebrow">Start planning</p>
           <h2 id="booking-heading" class="mt-3 pr-10 text-2xl font-semibold sm:text-3xl">Request this tour</h2>
-          <p class="mt-2 text-sm leading-relaxed text-slate-500">No payment now. A travel designer will confirm availability and tailor the details with you.</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-500">No payment now. WhatsApp opens with your order details so you can send them directly to our team.</p>
 
           <div class="mt-5 flex items-center justify-between gap-4 rounded-2xl border border-royal-100 bg-royal-50/70 p-4">
             <div class="min-w-0">
@@ -509,7 +511,7 @@
             <div class="grid gap-4 sm:grid-cols-2">
               <div>
                 <label class="field-label" for="bk-name">Full name</label>
-                <input class="field-input" id="bk-name" name="name" type="text" autocomplete="name" placeholder="Amina Nakato" required />
+                <input class="field-input" id="bk-name" name="name" type="text" autocomplete="name" placeholder="Nakibuule Esther" required />
                 <p class="field-error" data-error-for="name" hidden></p>
               </div>
               <div>
@@ -519,7 +521,7 @@
               </div>
               <div>
                 <label class="field-label" for="bk-phone">Phone / WhatsApp</label>
-                <input class="field-input" id="bk-phone" name="phone" type="tel" autocomplete="tel" placeholder="+256 700 123 456" required />
+                <input class="field-input" id="bk-phone" name="phone" type="tel" autocomplete="tel" placeholder="+256 774 818 301" required />
                 <p class="field-error" data-error-for="phone" hidden></p>
               </div>
               <div>
@@ -542,7 +544,7 @@
               </div>
               <div class="sm:col-span-2">
                 <label class="field-label" for="bk-notes">Anything we should know? <span class="font-normal normal-case tracking-normal text-slate-400">(optional)</span></label>
-                <textarea class="field-input min-h-[90px] resize-y" id="bk-notes" name="notes" rows="3" placeholder="Dietary needs, celebrations, preferred pace…"></textarea>
+                <textarea class="field-input min-h-22.5 resize-y" id="bk-notes" name="notes" rows="3" placeholder="Dietary needs, celebrations, preferred pace…"></textarea>
               </div>
             </div>
             <label class="mt-4 flex items-start gap-3 text-xs leading-relaxed text-slate-500">
@@ -551,31 +553,13 @@
             </label>
             <p class="field-error" data-error-for="consent" hidden></p>
             <button type="submit" class="btn-primary mt-5 w-full">
-              Request availability
+              Send new order on WhatsApp
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <p class="mt-3 text-center text-[11px] text-slate-400">Typical reply time: under 2 hours during office hours.</p>
           </form>
         </div>
 
-        <div data-booking-success hidden class="py-6 text-center">
-          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-jade-100 text-jade-700">
-            <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3 class="mt-5 text-2xl font-semibold" tabindex="-1" data-booking-success-heading>Request received</h3>
-          <p class="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-slate-500">Thank you! Your request is with our travel team. We'll reply within one business day with availability and next steps.</p>
-          <div class="mx-auto mt-4 max-w-sm rounded-2xl bg-mist p-4 text-left text-sm">
-            <p data-booking-summary class="font-medium text-ink"></p>
-            <p class="mt-1 text-xs text-slate-500">Keep this page open or continue the conversation on WhatsApp.</p>
-          </div>
-          <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-            <a data-booking-whatsapp href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" rel="noopener" class="btn-green">
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              Continue on WhatsApp
-            </a>
-            <button type="button" data-dialog-close class="btn-outline">Close</button>
-          </div>
-        </div>
       </div>
     </div>
   </dialog>`;
@@ -583,8 +567,6 @@
   document.body.insertAdjacentHTML("beforeend", dialogHTML);
   const bookingDialog = qs("#booking-dialog");
   const bookingForm = qs("[data-booking-form]", bookingDialog);
-  const bookingWrap = qs("[data-booking-form-wrap]", bookingDialog);
-  const bookingSuccess = qs("[data-booking-success]", bookingDialog);
   const bookingDate = qs("#bk-date", bookingDialog);
   if (bookingDate) bookingDate.min = todayISO;
 
@@ -608,9 +590,6 @@
       el.textContent = "";
     });
     qsa("[aria-invalid]", bookingDialog).forEach((el) => el.removeAttribute("aria-invalid"));
-    if (bookingWrap) bookingWrap.hidden = false;
-    if (bookingSuccess) bookingSuccess.hidden = true;
-
     bookingDialog.showModal();
     document.body.classList.add("dialog-open");
     window.setTimeout(() => qs("#bk-name", bookingDialog)?.focus(), 120);
@@ -636,8 +615,6 @@
     document.body.classList.remove("dialog-open");
     window.setTimeout(() => {
       bookingForm?.reset();
-      if (bookingWrap) bookingWrap.hidden = false;
-      if (bookingSuccess) bookingSuccess.hidden = true;
       qsa(".field-error", bookingDialog).forEach((el) => {
         el.hidden = true;
         el.textContent = "";
@@ -725,23 +702,11 @@
     if (!validateForm(bookingForm)) return;
 
     const data = new FormData(bookingForm);
-    const name = String(data.get("name") || "").split(" ")[0] || "traveller";
     const tour = qs("[data-booking-tour-input]", bookingDialog)?.value || "Custom itinerary";
     const date = String(data.get("date") || "");
     const travellers = String(data.get("travellers") || "");
-    const summary = qs("[data-booking-summary]", bookingDialog);
-    if (summary) {
-      summary.textContent = `${tour} · ${travellers} traveller${travellers === "1" ? "" : "s"} · starting ${date}`;
-    }
-
-    const waMessage = `Hello Pearl Voyages! I've just sent a booking request for "${tour}".\n\nName: ${data.get("name")}\nPreferred date: ${date}\nTravellers: ${travellers}\nEmail: ${data.get("email")}\nPhone: ${data.get("phone")}\n\nCould you help me confirm availability?`;
-    const waLink = qs("[data-booking-whatsapp]", bookingDialog);
-    if (waLink) waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
-
-    if (bookingWrap) bookingWrap.hidden = true;
-    if (bookingSuccess) bookingSuccess.hidden = false;
-    toast(`Thanks, ${name}. Your request is in — we'll be in touch shortly.`);
-    window.setTimeout(() => qs("[data-booking-success-heading]", bookingDialog)?.focus(), 80);
+    const waMessage = `NEW ORDER REQUEST — Estnak Tours & Travel\n\nTour: ${tour}\nName: ${data.get("name")}\nPreferred date: ${date}\nTravellers: ${travellers}\nEmail: ${data.get("email")}\nPhone: ${data.get("phone")}\nAdditional notes: ${data.get("notes") || "None"}\n\nPlease confirm availability and next steps.`;
+    window.location.assign(whatsappOrderUrl(waMessage));
   });
 
   /* ---------------------------------------------------------
@@ -753,7 +718,15 @@
 
     const messageField = qs("#contact-message", contactForm);
     const countEl = qs("#message-count");
+    const subjectField = qs("#contact-subject", contactForm);
+    const submitLabel = qs("[data-contact-submit-label]", contactForm);
     on(messageField, "input", () => setText(countEl, String(messageField.value.length)));
+    on(subjectField, "change", () => {
+      setText(
+        submitLabel,
+        subjectField.value === "Plan a new trip" ? "Continue to WhatsApp" : "Send message"
+      );
+    });
 
     on(contactForm, "submit", (event) => {
       event.preventDefault();
@@ -766,9 +739,17 @@
         summary.textContent = `${data.get("subject")} — ${String(data.get("message") || "").slice(0, 110)}${String(data.get("message") || "").length > 110 ? "…" : ""}`;
       }
 
-      const waMessage = `Hello Pearl Voyages!\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nPhone: ${data.get("phone") || "—"}\nSubject: ${data.get("subject")}\n\n${data.get("message")}`;
+      const isNewTripOrder = data.get("subject") === "Plan a new trip";
+      const waMessage = isNewTripOrder
+        ? `NEW ORDER REQUEST — Estnak Tours & Travel\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nPhone: ${data.get("phone") || "—"}\nRequest: ${data.get("message")}`
+        : `Hello Estnak Tours & Travel!\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nPhone: ${data.get("phone") || "—"}\nSubject: ${data.get("subject")}\n\n${data.get("message")}`;
       const waLink = qs("#contact-whatsapp", contactForm.closest("section") || document);
-      if (waLink) waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+      if (waLink) waLink.href = whatsappOrderUrl(waMessage);
+
+      if (isNewTripOrder) {
+        window.location.assign(whatsappOrderUrl(waMessage));
+        return;
+      }
 
       const success = qs("#contact-success");
       contactForm.hidden = true;
