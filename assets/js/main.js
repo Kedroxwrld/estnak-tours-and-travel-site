@@ -5,7 +5,7 @@
 (() => {
   "use strict";
 
-  const WHATSAPP_NUMBER = "256774818301";
+  const WHATSAPP_NUMBER = "256769532299";
   const BUSINESS_EMAIL = "bnasa77@gmail.com";
   const whatsappOrderUrl = (message) =>
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -500,7 +500,7 @@
           <p class="mt-2 text-sm leading-relaxed text-slate-500">No payment now. WhatsApp opens with your order details so you can send them directly to our team.</p>
           <div class="mt-3 rounded-xl bg-mist px-4 py-3 text-xs leading-relaxed text-slate-600">
             <p class="font-semibold text-ink">Your travel team: Nakibuule Esther, Founder &amp; Managing Director</p>
-            <p class="mt-1">Call <a href="tel:+256774818301" class="font-semibold text-royal-700 underline underline-offset-2">+256 774 818 301</a> or email <a href="mailto:${BUSINESS_EMAIL}" class="font-semibold text-royal-700 underline underline-offset-2">${BUSINESS_EMAIL}</a>.</p>
+            <p class="mt-1">Call <a href="tel:+256732790446" class="font-semibold text-royal-700 underline underline-offset-2">0732 790 446</a> or email <a href="mailto:${BUSINESS_EMAIL}" class="font-semibold text-royal-700 underline underline-offset-2">${BUSINESS_EMAIL}</a>.</p>
           </div>
 
           <div class="mt-5 flex items-center justify-between gap-4 rounded-2xl border border-royal-100 bg-royal-50/70 p-4">
