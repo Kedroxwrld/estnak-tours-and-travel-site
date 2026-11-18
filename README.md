@@ -24,9 +24,24 @@ npm run serve        # optional local preview at http://localhost:3000
 
 You can also open `index.html` directly in a browser. The compiled stylesheet is committed at `assets/css/styles.css`, so the site works without a build step.
 
-## Deploying on GitHub Pages
+## Deploying to Hostinger automatically
 
-The GitHub Actions workflow in `.github/workflows/pages.yml` builds the site and deploys it to GitHub Pages whenever changes are pushed to `main`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The deployed site is available at `https://<owner>.github.io/<repository>/`.
+The GitHub Actions workflow in `.github/workflows/hostinger-deploy.yml` builds the site and uploads the finished static files to Hostinger over encrypted FTPS whenever a commit is pushed to `main`. No ZIP files or manual uploads are needed.
+
+### One-time setup
+
+1. In Hostinger hPanel, open your website's FTP account/details. Create or select an FTP account with access to the website's document root. Note the FTP server hostname, username, password and the exact server directory for the website (often `public_html/`; use the path shown by Hostinger for your account).
+2. In GitHub, open this repository's **Settings → Secrets and variables → Actions → New repository secret**. Add:
+   - `HOSTINGER_FTP_SERVER` — the FTP hostname from Hostinger, without `ftp://`.
+   - `HOSTINGER_FTP_USERNAME` — the FTP username.
+   - `HOSTINGER_FTP_PASSWORD` — the FTP password.
+   - `HOSTINGER_SERVER_DIR` — the target directory on the FTP server, including a trailing slash.
+3. Ensure the workflow is enabled under the repository's **Actions** tab and that the deployment branch is `main`.
+4. Push a commit to `main`, or run **Actions → Deploy to Hostinger → Run workflow** to deploy manually.
+
+Edit page sources in `src/pages/`, shared layout in `partials/`, or styles/scripts/assets in their respective folders. The workflow runs `npm ci` and `npm run build`, then uploads the built HTML, `assets/`, `robots.txt` and `sitemap.xml`. Local VS Code edits only reach Hostinger after they are committed and pushed to GitHub; edits made directly on GitHub's `main` branch deploy after that commit too. Changes on another branch deploy after merging into `main`.
+
+The FTP password stays in GitHub Actions secrets and is not stored in the repository. Do not paste it into source files or commit it. The workflow uploads into the configured server directory; ensure it points to the correct website document root before the first run.
 
 ### Useful scripts
 
