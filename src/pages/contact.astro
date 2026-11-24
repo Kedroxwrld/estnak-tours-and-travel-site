@@ -1,0 +1,407 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import { contactFaqSchema } from "../data/site";
+---
+
+<BaseLayout
+  activePage="contact"
+  title="Contact Estnak Tours | Uganda Travel Enquiries"
+  description="Contact Estnak Tours and Travel in Kampala for Uganda tours, safaris and custom travel. Call 0769 532299, message on WhatsApp or email us."
+  keywords="Uganda tours, Kampala travel agency, safari enquiry, Estnak Tours and Travel contact, WhatsApp travel agent"
+  canonical="https://www.estnaktoursandtravel.com/contact.html"
+  ogImage="https://www.estnaktoursandtravel.com/assets/img/optimized/hero-safari.webp"
+  ogImageAlt="Safari vehicle crossing golden grassland beneath an African sunset"
+  ogImageWidth={1920}
+  ogImageHeight={1284}
+  additionalSchema={contactFaqSchema}
+>
+  <main id="main">
+<!-- Page hero -->
+    <section class="relative isolate overflow-hidden bg-royal-950 py-12 text-white sm:py-16 lg:py-20" aria-labelledby="page-heading">
+      <div class="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-royal-600/25 blur-3xl" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -bottom-24 left-0 h-72 w-72 rounded-full bg-jade-500/15 blur-3xl" aria-hidden="true"></div>
+      <div class="container-x relative">
+        <nav aria-label="Breadcrumb" class="text-xs font-medium uppercase tracking-[0.16em] text-white/65">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="index.html" class="transition hover:text-white">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="text-white">Contact</li>
+          </ol>
+        </nav>
+
+        <div class="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-14">
+          <div>
+            <p class="eyebrow eyebrow-light">Kampala, Uganda</p>
+            <h1 id="page-heading" class="mt-4 max-w-2xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">Let’s plan your next journey.</h1>
+            <p class="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">Plan Uganda tours, safaris and tailor-made trips with our Kampala team.</p>
+
+            <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href="https://wa.me/256769532299" target="_blank" rel="noopener" class="btn-green w-full sm:w-auto">
+                <Icon name="message-circle" class="h-4 w-4" aria-hidden="true" />
+                Chat on WhatsApp
+              </a>
+              <a href="tel:+256769532299" class="btn-glass w-full sm:w-auto">
+                <Icon name="phone" class="h-4 w-4" aria-hidden="true" />
+                Call 0769 532299
+              </a>
+            </div>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+              <span class="glass-badge">
+                <Icon name="map-pin" class="h-3.5 w-3.5 text-royal-700" aria-hidden="true" />
+                Civic Centre, Christ The King
+              </span>
+              <span class="glass-badge">
+                <Icon name="clock-3" class="h-3.5 w-3.5 text-jade-700" aria-hidden="true" />
+                Mon–Sat, 9:00 AM–5:00 PM EAT
+              </span>
+            </div>
+          </div>
+
+          <figure class="reveal relative h-80 overflow-hidden rounded-[28px] border border-white/15 bg-royal-900 shadow-2xl sm:h-96">
+            <img src="assets/img/optimized/hero-safari.webp" alt="Safari vehicle crossing golden grassland beneath an African sunset" width="1920" height="1284" loading="lazy" class="h-full w-full object-cover" />
+            <div class="pointer-events-none absolute inset-0 bg-linear-to-t from-royal-950/90 via-royal-950/15 to-transparent" aria-hidden="true"></div>
+            <figcaption class="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+              <p class="eyebrow eyebrow-light">Your journey starts here</p>
+              <p class="mt-3 max-w-sm font-display text-xl font-semibold leading-snug text-white sm:text-2xl">From Kampala to your next destination.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form and details -->
+    <section id="quote" class="section scroll-mt-24" aria-labelledby="contact-heading">
+      <div class="container-x">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow">Travel enquiry</p>
+          <h2 id="contact-heading" class="h2">Start your travel enquiry.</h2>
+          <p class="lede">Share your destination, dates and travel style. A rough idea is enough.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-8">
+          <div class="card overflow-hidden p-5 sm:p-8">
+            <h3 class="font-display text-xl font-semibold text-ink sm:text-2xl">Tell us about your trip</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-500">Fields marked <span class="text-red-500" aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+
+            <form id="contact-form" class="mt-6" novalidate aria-describedby="form-privacy-note">
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label class="field-label" for="contact-name">Full name <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <input class="field-input" id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your full name" maxlength="120" required aria-describedby="contact-name-error" />
+                  <p id="contact-name-error" class="field-error" data-error-for="name" hidden></p>
+                </div>
+
+                <div>
+                  <label class="field-label" for="contact-email">Email address <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <input class="field-input" id="contact-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" maxlength="180" required aria-describedby="contact-email-error" />
+                  <p id="contact-email-error" class="field-error" data-error-for="email" hidden></p>
+                </div>
+
+                <div>
+                  <label class="field-label" for="contact-phone">Phone / WhatsApp <span class="font-normal normal-case tracking-normal text-slate-400">(optional)</span></label>
+                  <input class="field-input" id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Include your country code" maxlength="40" aria-describedby="contact-phone-error" />
+                  <p id="contact-phone-error" class="field-error" data-error-for="phone" hidden></p>
+                </div>
+
+                <div>
+                  <label class="field-label" for="contact-service">Service needed <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <select class="field-input cursor-pointer" id="contact-service" name="service" required aria-describedby="contact-service-error">
+                    <option value="">Choose a service</option>
+                    <option value="Tour/Safari">Tour/Safari</option>
+                    <option value="Excursion">Excursion</option>
+                    <option value="Cultural Tour">Cultural Tour</option>
+                    <option value="Flight Booking">Flight Booking</option>
+                    <option value="Visa Assistance">Visa Assistance</option>
+                    <option value="Vehicle Rental">Vehicle Rental</option>
+                    <option value="Accommodation">Accommodation</option>
+                    <option value="Corporate/MICE">Corporate/MICE</option>
+                    <option value="Relocation">Relocation</option>
+                    <option value="Educational Travel">Educational Travel</option>
+                    <option value="Travel Insurance">Travel Insurance</option>
+                    <option value="Digital Booking Support">Digital Booking Support</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <p id="contact-service-error" class="field-error" data-error-for="service" hidden></p>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label class="field-label" for="contact-dates">Travel dates <span class="font-normal normal-case tracking-normal text-slate-400">(optional)</span></label>
+                  <input class="field-input" id="contact-dates" name="dates" type="text" placeholder="e.g. 12–18 August or flexible" maxlength="120" aria-describedby="contact-dates-hint contact-dates-error" />
+                  <p id="contact-dates-hint" class="mt-1.5 text-xs leading-relaxed text-slate-500">Enter a date, range or flexible window.</p>
+                  <p id="contact-dates-error" class="field-error" data-error-for="dates" hidden></p>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <div class="flex items-baseline justify-between gap-3">
+                    <label class="field-label" for="contact-message">Your message <span class="text-red-500" aria-hidden="true">*</span></label>
+                    <span class="text-xs text-slate-500"><span id="message-count">0</span> / 1,200</span>
+                  </div>
+                  <textarea class="field-input min-h-35 resize-y" id="contact-message" name="message" rows="6" maxlength="1200" placeholder="Destination, travellers, interests and anything else we should know…" required aria-describedby="contact-message-error message-count"></textarea>
+                  <p id="contact-message-error" class="field-error" data-error-for="message" hidden></p>
+                </div>
+              </div>
+
+              <div class="mt-5 flex items-start gap-3">
+                <input id="contact-consent" name="consent" type="checkbox" value="yes" class="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-royal-600 focus:ring-royal-500" required aria-describedby="contact-consent-error" />
+                <div class="min-w-0 flex-1">
+                  <label for="contact-consent" class="block text-sm leading-relaxed text-slate-600">I agree to be contacted about this enquiry and have read the <a href="#privacy" class="font-semibold text-royal-700 underline decoration-royal-200 underline-offset-2">privacy note</a>. <span class="text-red-500" aria-hidden="true">*</span></label>
+                  <p id="contact-consent-error" class="field-error" data-error-for="consent" hidden></p>
+                </div>
+              </div>
+
+              <div class="mt-6 rounded-2xl border border-jade-100 bg-jade-50 p-4">
+                <div class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-jade-700 shadow-sm"><Icon name="shield-check" class="h-4 w-4" aria-hidden="true" /></span>
+                  <div>
+                    <p id="form-privacy-note" class="text-sm leading-relaxed text-jade-800">Continue in WhatsApp with your details prefilled. Nothing is sent until you tap Send.</p>
+                    <p class="mt-2 text-sm leading-relaxed text-jade-800">Prefer email? Write to <a href="mailto:estnaktoursandtravel@gmail.com" class="font-semibold underline decoration-jade-200 underline-offset-2">estnaktoursandtravel@gmail.com</a>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-green mt-6 w-full sm:w-auto">
+                <Icon name="message-circle" class="h-4 w-4" aria-hidden="true" />
+                Continue on WhatsApp
+              </button>
+              <p id="contact-status" role="status" aria-live="polite" aria-atomic="true" class="mt-4 min-h-5 text-sm leading-relaxed text-slate-600"></p>
+            </form>
+          </div>
+
+          <aside class="space-y-5 lg:sticky lg:top-24" aria-label="Contact information and quick links">
+            <div class="card overflow-hidden">
+              <figure class="relative h-52 bg-royal-100">
+                <img src="assets/img/optimized/kampala-city.webp" alt="Kampala taxi park and city skyline viewed from above" width="1200" height="900" loading="lazy" class="h-full w-full object-cover" />
+                <figcaption class="glass-badge absolute bottom-4 left-4">
+                  <Icon name="map-pin" class="h-3.5 w-3.5 text-royal-700" aria-hidden="true" />
+                  Kampala, Uganda
+                </figcaption>
+              </figure>
+
+              <div class="p-5 sm:p-6">
+                <p class="eyebrow">Direct contact</p>
+                <h3 class="mt-3 font-display text-xl font-semibold text-ink">Talk to our team</h3>
+
+                <dl class="mt-6 space-y-5">
+                  <div class="grid grid-cols-[auto_1fr] items-start gap-x-3 gap-y-1">
+                    <dt class="col-span-2 flex items-center gap-3">
+                      <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-royal-50 text-royal-700"><Icon name="map-pin" class="h-5 w-5" aria-hidden="true" /></span>
+                      <span class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Office</span>
+                    </dt>
+                    <dd class="col-span-2 pl-[52px] text-sm leading-relaxed text-ink"><address class="not-italic">Civic Centre, Christ The King<br />217507 Kampala GPO<br />Kampala, Uganda</address></dd>
+                  </div>
+
+                  <div class="grid grid-cols-[auto_1fr] items-start gap-x-3 gap-y-1">
+                    <dt class="col-span-2 flex items-center gap-3">
+                      <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-royal-50 text-royal-700"><Icon name="phone" class="h-5 w-5" aria-hidden="true" /></span>
+                      <span class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Phone</span>
+                    </dt>
+                    <dd class="col-span-2 pl-[52px] text-sm font-semibold text-ink"><a href="tel:+256769532299" class="inline-flex min-h-6 items-center transition hover:text-royal-700">0769 532299</a></dd>
+                  </div>
+
+                  <div class="grid grid-cols-[auto_1fr] items-start gap-x-3 gap-y-1">
+                    <dt class="col-span-2 flex items-center gap-3">
+                      <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-jade-50 text-jade-700"><Icon name="message-circle" class="h-5 w-5" aria-hidden="true" /></span>
+                      <span class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">WhatsApp</span>
+                    </dt>
+                    <dd class="col-span-2 pl-[52px] text-sm font-semibold text-ink"><a href="https://wa.me/256769532299" target="_blank" rel="noopener" class="inline-flex min-h-6 items-center transition hover:text-jade-700">Message us on WhatsApp</a></dd>
+                  </div>
+
+                  <div class="grid grid-cols-[auto_1fr] items-start gap-x-3 gap-y-1">
+                    <dt class="col-span-2 flex items-center gap-3">
+                      <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-royal-50 text-royal-700"><Icon name="mail" class="h-5 w-5" aria-hidden="true" /></span>
+                      <span class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Email</span>
+                    </dt>
+                    <dd class="col-span-2 pl-[52px] text-sm font-semibold text-ink"><a href="mailto:estnaktoursandtravel@gmail.com" class="inline-flex min-h-6 items-center break-all transition hover:text-royal-700">estnaktoursandtravel@gmail.com</a></dd>
+                  </div>
+
+                  <div class="grid grid-cols-[auto_1fr] items-start gap-x-3 gap-y-1">
+                    <dt class="col-span-2 flex items-center gap-3">
+                      <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-royal-50 text-royal-700"><Icon name="clock-3" class="h-5 w-5" aria-hidden="true" /></span>
+                      <span class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Office hours</span>
+                    </dt>
+                    <dd class="col-span-2 pl-[52px] text-sm leading-relaxed text-ink">Mon–Sat, 9:00 AM–5:00 PM EAT<br /><span class="text-slate-500">Sunday closed</span></dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="card p-5 sm:p-6">
+              <h3 class="font-display text-lg font-semibold text-ink">Explore our trips</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Browse services and tours, then share your favourites.</p>
+              <nav class="mt-4 flex flex-wrap gap-x-5 gap-y-3" aria-label="Services and tours">
+                <a href="destinations.html" class="link-arrow">View services <Icon name="arrow-up-right" class="h-4 w-4" aria-hidden="true" /></a>
+                <a href="tours.html" class="link-arrow">Browse tours <Icon name="arrow-up-right" class="h-4 w-4" aria-hidden="true" /></a>
+              </nav>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section id="map" class="section bg-mist" aria-labelledby="map-heading">
+      <div class="container-x">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div class="reveal max-w-2xl">
+            <p class="eyebrow">Find us</p>
+            <h2 id="map-heading" class="h2">Our Kampala office.</h2>
+            <p class="lede">Civic Centre, Christ The King, 217507 Kampala GPO, Kampala, Uganda.</p>
+          </div>
+          <a href="https://www.google.com/maps?q=Civic%20Centre%2C%20Christ%20The%20King%2C%20217507%20Kampala%20GPO%2C%20Uganda" target="_blank" rel="noopener" class="link-arrow reveal shrink-0">Open in Google Maps <Icon name="arrow-up-right" class="h-4 w-4" aria-hidden="true" /></a>
+        </div>
+
+        <div class="reveal mt-8 overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-card">
+          <iframe
+            title="Map showing Civic Centre, Christ The King, Kampala GPO"
+            src="https://www.google.com/maps?q=Civic%20Centre%2C%20Christ%20The%20King%2C%20217507%20Kampala%20GPO%2C%20Uganda&amp;output=embed"
+            width="1200"
+            height="440"
+            class="h-[360px] w-full border-0 sm:h-[440px]"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="reveal mt-5 flex items-start gap-3 rounded-2xl border border-royal-100 bg-white p-4 shadow-sm sm:items-center">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-royal-50 text-royal-700"><Icon name="map-pin" class="h-5 w-5" aria-hidden="true" /></span>
+          <p class="text-sm leading-relaxed text-slate-600"><strong class="font-semibold text-ink">Before you visit:</strong> confirm the office entrance with our team.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section scroll-mt-24" aria-labelledby="faq-heading">
+      <div class="container-x grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div class="reveal lg:sticky lg:top-24 lg:self-start">
+          <p class="eyebrow">Questions</p>
+          <h2 id="faq-heading" class="h2">Useful answers before you travel.</h2>
+          <p class="lede">Practical answers for planning your trip.</p>
+          <a href="https://wa.me/256769532299" target="_blank" rel="noopener" class="btn-green mt-6">
+            <Icon name="message-circle" class="h-4 w-4" aria-hidden="true" />
+            Ask on WhatsApp
+          </a>
+        </div>
+
+        <div class="reveal space-y-3">
+          <details class="faq group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card" open>
+            <summary class="flex items-center justify-between gap-4">
+              <span class="font-display text-[15px] font-semibold text-ink">Can you create a custom trip?</span>
+              <Icon name="plus" class="faq-plus h-5 w-5 shrink-0 text-royal-600" aria-hidden="true" />
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-500">Yes. Share your dates, destination, travel style and budget. Availability and pricing are confirmed in your written quote.</p>
+          </details>
+
+          <details class="faq group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="font-display text-[15px] font-semibold text-ink">How do gorilla trekking permits work?</span>
+              <Icon name="plus" class="faq-plus h-5 w-5 shrink-0 text-royal-600" aria-hidden="true" />
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-500">Permits are required and must be available for your date. Fees can change and availability is not guaranteed. We can help explore options.</p>
+          </details>
+
+          <details class="faq group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="font-display text-[15px] font-semibold text-ink">Do I need a visa to visit Uganda?</span>
+              <Icon name="plus" class="faq-plus h-5 w-5 shrink-0 text-royal-600" aria-hidden="true" />
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-500">Requirements depend on your nationality, travel document and itinerary. Check official immigration rules before travel; we can assist with your application.</p>
+          </details>
+
+          <details class="faq group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="font-display text-[15px] font-semibold text-ink">When is the best time to visit Uganda?</span>
+              <Icon name="plus" class="faq-plus h-5 w-5 shrink-0 text-royal-600" aria-hidden="true" />
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-500">Uganda is a year-round destination. Timing depends on your route, activities and regional rainfall. We can help choose dates.</p>
+          </details>
+
+          <details class="faq group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="font-display text-[15px] font-semibold text-ink">What is included and excluded in a quote?</span>
+              <Icon name="plus" class="faq-plus h-5 w-5 shrink-0 text-royal-600" aria-hidden="true" />
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-500">Your written quote lists inclusions and exclusions. Flights, visas, insurance and personal expenses are included only when stated.</p>
+          </details>
+
+          <details class="faq group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="font-display text-[15px] font-semibold text-ink">What are the payment and change terms?</span>
+              <Icon name="plus" class="faq-plus h-5 w-5 shrink-0 text-royal-600" aria-hidden="true" />
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-500">Payment schedules and change or cancellation terms appear in your written quote and vary by itinerary and supplier. Review them before booking.</p>
+          </details>
+
+          <details class="faq group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card">
+            <summary class="flex items-center justify-between gap-4">
+              <span class="font-display text-[15px] font-semibold text-ink">How can I contact Estnak Tours and Travel?</span>
+              <Icon name="plus" class="faq-plus h-5 w-5 shrink-0 text-royal-600" aria-hidden="true" />
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-500">Call 0769 532299, message us on WhatsApp or email estnaktoursandtravel@gmail.com. We’re open Monday–Saturday, 9:00 AM–5:00 PM EAT; Sunday closed.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section id="privacy" class="section scroll-mt-24 bg-mist" aria-labelledby="privacy-heading">
+      <div class="container-x grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div class="reveal">
+          <p class="eyebrow">Your information</p>
+          <h2 id="privacy-heading" class="h2">A clear privacy note.</h2>
+          <p class="lede">How the enquiry form and embedded map handle your information.</p>
+        </div>
+
+        <div class="card p-5 sm:p-8">
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-jade-50 text-jade-700"><Icon name="message-circle" class="h-5 w-5" aria-hidden="true" /></span>
+              <div>
+                <h3 class="font-display text-base font-semibold text-ink">No enquiry database</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-500">This static site stores no enquiries. Form details pass to WhatsApp only when you continue and tap Send.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-royal-50 text-royal-700"><Icon name="globe-2" class="h-5 w-5" aria-hidden="true" /></span>
+              <div>
+                <h3 class="font-display text-base font-semibold text-ink">Third-party services</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-500">The embedded Google Map may receive technical data, such as your IP address and browser details, when it loads. Social and WhatsApp links open their own services.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-royal-50 text-royal-700"><Icon name="mail" class="h-5 w-5" aria-hidden="true" /></span>
+              <div>
+                <h3 class="font-display text-base font-semibold text-ink">Questions and data removal</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-500">For access to or removal of details you’ve shared with us, email <a href="mailto:estnaktoursandtravel@gmail.com" class="font-semibold text-royal-700 underline decoration-royal-200 underline-offset-2">estnaktoursandtravel@gmail.com</a>.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="relative isolate overflow-hidden bg-royal-950 py-16 text-white sm:py-20" aria-labelledby="cta-heading">
+      <div class="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-royal-600/25 blur-3xl" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -bottom-24 left-0 h-72 w-72 rounded-full bg-jade-500/15 blur-3xl" aria-hidden="true"></div>
+      <div class="container-x relative flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow eyebrow-light">Ready when you are</p>
+          <h2 id="cta-heading" class="h2 text-white">Turn your travel idea into a plan.</h2>
+          <p class="mt-4 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">Share your destination, dates and interests with our Kampala team.</p>
+        </div>
+        <div class="reveal flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:shrink-0">
+          <a href="#quote" class="btn-green w-full sm:w-auto">
+            <Icon name="message-circle" class="h-4 w-4" aria-hidden="true" />
+            Start an enquiry
+          </a>
+          <a href="tours.html" class="btn-glass w-full sm:w-auto">
+            Explore tours
+            <Icon name="arrow-right" class="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

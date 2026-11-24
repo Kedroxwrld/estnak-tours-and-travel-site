@@ -1,0 +1,274 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+---
+
+<BaseLayout
+  activePage="tours"
+  title="Uganda Safaris & Global Packages | Estnak"
+  description="Explore Uganda safari packages, gorilla trekking, Zanzibar holidays and global tours. Tailor your dates, route and budget with Estnak Tours and Travel."
+  keywords="Uganda safari packages, gorilla trekking tours, Murchison Falls safari, Serengeti tours, Zanzibar holidays, Dubai packages, global tour packages, Kampala tour operator"
+  canonical="https://www.estnaktoursandtravel.com/tours.html"
+  ogImage="https://www.estnaktoursandtravel.com/assets/img/optimized/tour-serengeti.webp"
+  ogImageAlt="Safari vehicle beneath acacia trees in golden African grassland"
+  ogImageWidth={1000}
+  ogImageHeight={750}
+>
+  <main id="main">
+<section class="relative isolate overflow-hidden bg-royal-950 py-16 text-white sm:py-20 lg:py-24" aria-labelledby="page-heading">
+      <img src="assets/img/optimized/tour-serengeti.webp" alt="Safari vehicle beneath acacia trees in golden African grassland" width="1000" height="750" fetchpriority="high" class="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-60" />
+      <div class="absolute inset-0 -z-10 bg-linear-to-r from-royal-950 via-royal-950/85 to-royal-950/35"></div>
+      <div class="absolute inset-0 -z-10 bg-linear-to-t from-royal-950/85 via-transparent to-royal-950/40"></div>
+      <div class="container-x relative">
+        <nav aria-label="Breadcrumb" class="text-[11px] font-medium uppercase tracking-[0.16em] text-white/65">
+          <ol class="flex flex-wrap items-center gap-2"><li><a href="index.html" class="transition hover:text-white">Home</a></li><li aria-hidden="true">/</li><li aria-current="page" class="text-white">Tours &amp; safaris</li></ol>
+        </nav>
+        <div class="mt-6 max-w-3xl">
+          <p class="eyebrow eyebrow-light">The tour collection</p>
+          <h1 id="page-heading" class="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">Uganda Safaris &amp; Global Tour Packages</h1>
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">Start with a journey. We tailor every route to your dates, interests and budget.</p>
+          <div class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/75">
+            <span class="inline-flex items-center gap-1.5"><Icon name="check" class="h-4 w-4 text-jade-300" aria-hidden="true" />Private and tailor-made options</span>
+            <span class="inline-flex items-center gap-1.5"><Icon name="check" class="h-4 w-4 text-jade-300" aria-hidden="true" />Clear written quotes</span>
+            <span class="inline-flex items-center gap-1.5"><Icon name="check" class="h-4 w-4 text-jade-300" aria-hidden="true" />Local planning support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tours-heading">
+      <div class="container-x">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div class="max-w-2xl">
+            <p class="eyebrow">Browse the collection</p>
+            <h2 id="tours-heading" class="h2">Find your next journey</h2>
+            <p class="lede">Filter by style, destination, duration or indicative budget. Prices are per person, based on two sharing.</p>
+          </div>
+          <a href="#tour-starter" class="link-arrow shrink-0">Prefer to build your own? <Icon name="arrow-right" class="h-4 w-4" aria-hidden="true" /></a>
+        </div>
+
+        <button type="button" id="filter-toggle" class="mt-8 inline-flex w-full items-center justify-between gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-ink shadow-card lg:hidden" aria-expanded="false" aria-controls="filter-panel">
+          <span class="inline-flex items-center gap-2"><Icon name="sliders-horizontal" class="h-4 w-4 text-royal-600" aria-hidden="true" />Filters</span><Icon name="chevron-down" class="h-4 w-4 text-slate-500" aria-hidden="true" />
+        </button>
+
+        <div id="filter-panel" class="mt-4 rounded-3xl border border-slate-200/80 bg-white p-5 shadow-card lg:mt-8 lg:p-6">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="font-display text-base font-semibold">Refine your search</h3>
+            <button type="button" data-clear-filters class="text-[11px] font-semibold uppercase tracking-[0.1em] text-royal-700 transition hover:text-royal-900 disabled:cursor-not-allowed disabled:text-slate-400" disabled>Clear filters</button>
+          </div>
+          <div class="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-[1.2fr_1fr_0.8fr_0.8fr_1fr]">
+            <div>
+              <label for="tour-search" class="field-label">Search</label>
+              <div class="relative"><Icon name="search" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" aria-hidden="true" /><input id="tour-search" type="search" placeholder="Gorilla, beach, Dubai…" class="field-input pl-10" autocomplete="off" /></div>
+            </div>
+            <div>
+              <label for="filter-destination" class="field-label">Destination</label>
+              <select id="filter-destination" class="field-input cursor-pointer">
+                <option value="all">All destinations</option><option value="Uganda">Uganda</option><option value="Tanzania">Tanzania</option><option value="Zanzibar">Zanzibar</option><option value="Rwanda">Rwanda</option><option value="United Arab Emirates">United Arab Emirates</option><option value="Greece">Greece</option><option value="South Africa">South Africa</option><option value="France">France</option><option value="Indonesia">Indonesia</option><option value="Maldives">Maldives</option>
+              </select>
+            </div>
+            <div>
+              <label for="filter-duration" class="field-label">Trip length</label>
+              <select id="filter-duration" class="field-input cursor-pointer"><option value="all">Any length</option><option value="short">1 – 4 days</option><option value="mid">5 – 7 days</option><option value="long">8+ days</option></select>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between gap-3"><label for="filter-price" class="field-label !mb-0">Budget per person</label><span id="filter-price-value" class="text-[11px] font-semibold text-royal-700">Any price</span></div>
+              <input id="filter-price" type="range" min="500" max="3000" step="50" value="3000" class="price-range mt-4 w-full cursor-pointer" aria-describedby="filter-price-value" />
+            </div>
+            <div>
+              <label for="sort-tours" class="field-label">Sort by</label>
+              <select id="sort-tours" class="field-input cursor-pointer"><option value="recommended">Recommended</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="duration">Shortest first</option></select>
+            </div>
+          </div>
+          <fieldset class="mt-5">
+            <legend class="field-label">Travel style</legend>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" data-filter-category="all" class="chip is-active !px-3.5 !py-2 !text-xs" aria-pressed="true">All</button>
+              <button type="button" data-filter-category="safari" class="chip !px-3.5 !py-2 !text-xs" aria-pressed="false">Safari</button>
+              <button type="button" data-filter-category="beach" class="chip !px-3.5 !py-2 !text-xs" aria-pressed="false">Beach</button>
+              <button type="button" data-filter-category="city" class="chip !px-3.5 !py-2 !text-xs" aria-pressed="false">City</button>
+              <button type="button" data-filter-category="culture" class="chip !px-3.5 !py-2 !text-xs" aria-pressed="false">Culture</button>
+              <button type="button" data-filter-category="adventure" class="chip !px-3.5 !py-2 !text-xs" aria-pressed="false">Adventure</button>
+              <button type="button" data-filter-category="global" class="chip !px-3.5 !py-2 !text-xs" aria-pressed="false">Global</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="mt-6 flex flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-card sm:flex-row sm:items-center sm:justify-between">
+          <p class="text-sm text-slate-600"><span id="tour-count" class="font-semibold text-ink">12 tours</span> match your filters</p>
+          <p class="text-[11px] text-slate-500">Prices in USD. Conversions are approximate.</p>
+        </div>
+
+        <div id="tour-grid" class="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="tour-card reveal" data-tour-card data-title="Bwindi Gorilla Trek &amp; Lake Bunyonyi" data-keywords="gorilla trekking bwindi lake bunyonyi primates uganda safari" data-destination="Uganda" data-category="safari" data-days="4" data-price="1850" data-order="1">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/style-gorilla.webp" alt="Mountain gorilla resting in a lush green forest" width="900" height="1200" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Uganda safari</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />4 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–6 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Uganda</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Bwindi Gorilla Trek &amp; Lake Bunyonyi</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Gorilla trekking and a quiet Lake Bunyonyi extension.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Licensed gorilla trekking subject to permit availability</li><li>Private transport and selected accommodation</li><li>Lake Bunyonyi and community activities can be tailored</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="1850">$1,850</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Bwindi%20tour%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 4-day Bwindi Gorilla Trek and Lake Bunyonyi tour." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Murchison Falls &amp; Nile Safari" data-keywords="murchison falls nile wildlife elephants boat safari uganda" data-destination="Uganda" data-category="safari" data-days="3" data-price="980" data-order="2">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/tour-murchison.webp" alt="Young elephant standing in golden savannah grassland" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Uganda safari</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />3 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–6 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Uganda</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Murchison Falls &amp; Nile Safari</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Wildlife drives, a Nile boat safari and the powerful falls at the heart of the park.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Game drives and a Nile boat experience</li><li>Selected lodge and meals in the final quote</li><li>Can be combined with Kampala or a longer safari</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="980">$980</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Murchison%20Falls%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 3-day Murchison Falls and Nile Safari." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Queen Elizabeth Wildlife &amp; Crater Lakes" data-keywords="queen elizabeth national park crater lakes wildlife uganda safari" data-destination="Uganda" data-category="safari" data-days="4" data-price="1290" data-order="3">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/tour-queen-elizabeth.webp" alt="Safari vehicle beside a river with hippos in the water" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Uganda safari</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />4 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–6 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Uganda</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Queen Elizabeth Wildlife &amp; Crater Lakes</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">A varied safari with wildlife, crater lakes and optional gorilla trekking connections.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Game viewing and selected crater lake visits</li><li>Private guide and vehicle arrangements</li><li>Route can connect with Bwindi by road or flight</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="1290">$1,290</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Queen%20Elizabeth%20tour%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 4-day Queen Elizabeth Wildlife and Crater Lakes tour." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Serengeti Great Migration Safari" data-keywords="serengeti great migration tanzania safari wildlife" data-destination="Tanzania" data-category="safari" data-days="6" data-price="2240" data-order="4">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/tour-serengeti.webp" alt="Safari vehicle beneath acacia trees in golden African grassland" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Tanzania safari</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />6 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–6 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Tanzania</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Serengeti Great Migration Safari</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Seasonal wildlife, with camps positioned for your dates.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Safari camps and game drives arranged around the season</li><li>Migration sightings depend on weather and wildlife movement</li><li>Can be extended to Ngorongoro or Zanzibar</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="2240">$2,240</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Serengeti%20safari%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 6-day Serengeti Great Migration Safari." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Zanzibar Beach &amp; Stone Town Escape" data-keywords="zanzibar beach stone town spice tour tanzania honeymoon" data-destination="Zanzibar" data-category="beach" data-days="5" data-price="1240" data-order="5">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/tour-zanzibar.webp" alt="Turquoise water and white sand along the Zanzibar coast" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Beach &amp; culture</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />5 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–4 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Zanzibar</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Zanzibar Beach &amp; Stone Town Escape</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Historic lanes, spice markets and unhurried days beside the Indian Ocean.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Stone Town and spice tour options</li><li>Beach stay selected for your budget</li><li>Combines easily with a Tanzania safari</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="1240">$1,240</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Zanzibar%20package%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 5-day Zanzibar Beach and Stone Town Escape." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Rwanda Gorilla Trek &amp; Kigali City" data-keywords="rwanda gorilla trekking kigali city volcanoes national park" data-destination="Rwanda" data-category="safari" data-days="4" data-price="2190" data-order="6">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/tour-queen-elizabeth.webp" alt="Safari vehicle in green African grassland beside a river" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Rwanda journey</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />4 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–6 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Rwanda</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Rwanda Gorilla Trek &amp; Kigali City</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">A gorilla trekking journey with time to explore Kigali's food, art and city stories.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Gorilla permits subject to availability and current fees</li><li>Private transfers and selected city experiences</li><li>Exact trekking location confirmed in the itinerary</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="2190">$2,190</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Rwanda%20tour%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 4-day Rwanda Gorilla Trek and Kigali City tour." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Dubai City &amp; Desert Escape" data-keywords="dubai city desert safari burj khalifa uae global package" data-destination="United Arab Emirates" data-category="global" data-days="5" data-price="1490" data-order="7">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/style-global.webp" alt="Dubai skyline with modern towers beside the waterfront" width="900" height="1200" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Global package</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />5 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–4 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />UAE</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Dubai City &amp; Desert Escape</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Skyline views, modern attractions and a desert experience on a flexible city break.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Hotel and airport transfers arranged in the quote</li><li>City and desert activities can be selected</li><li>International flights and visa costs confirmed separately</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="1490">$1,490</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Dubai%20package%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 5-day Dubai City and Desert Escape." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Santorini Island Escape" data-keywords="santorini greece island honeymoon caldera global package" data-destination="Greece" data-category="global" data-days="6" data-price="2190" data-order="8">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/tour-santorini-small.webp" alt="Whitewashed buildings and blue sea in Santorini" width="900" height="700" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Global package</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />6 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–4 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Greece</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Santorini Island Escape</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Caldera views, island villages and unhurried Mediterranean days.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Island accommodation and transfers in the proposal</li><li>Sailing and village experiences can be added</li><li>Best travel months depend on your preferred pace</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="2190">$2,190</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Santorini%20package%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 6-day Santorini Island Escape." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Cape Town &amp; Garden Route" data-keywords="cape town garden route south africa wine global package" data-destination="South Africa" data-category="global" data-days="7" data-price="2290" data-order="9">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/pkg-cape-town.webp" alt="Cape Town coastline and mountain scenery" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Global package</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />7 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–6 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />South Africa</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Cape Town &amp; Garden Route</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">A scenic road journey combining city life, coastal towns and the Garden Route.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Accommodation and ground transport in the proposal</li><li>Wine, nature and coastal stops can be tailored</li><li>International flights quoted separately</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="2290">$2,290</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Cape%20Town%20package%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 7-day Cape Town and Garden Route package." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Paris &amp; Romantic Europe" data-keywords="paris france europe city break honeymoon global package" data-destination="France" data-category="global" data-days="7" data-price="2490" data-order="10">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/pkg-paris.webp" alt="Paris skyline with the Eiffel Tower at sunset" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Global package</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />7 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–4 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />France</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Paris &amp; Romantic Europe</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Classic Paris landmarks, neighbourhood wandering and room for a wider European extension.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Hotel and selected city experiences</li><li>Optional multi-city extension</li><li>Attraction tickets and flights itemised in the quote</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="2490">$2,490</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Paris%20package%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 7-day Paris and Romantic Europe package." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Bali Beach &amp; Culture" data-keywords="bali indonesia beach culture temples honeymoon global package" data-destination="Indonesia" data-category="global" data-days="7" data-price="1790" data-order="11">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/pkg-bali.webp" alt="Tropical greenery and traditional architecture in Bali" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Global package</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />7 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2–4 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Indonesia</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Bali Beach &amp; Culture</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">A balanced mix of tropical coast, cultural sites and time to simply slow down.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Beach and cultural stays can be combined</li><li>Private guiding and transfers in selected packages</li><li>Route adjusted for your interests and travel month</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="1790">$1,790</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Bali%20package%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 7-day Bali Beach and Culture package." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" data-tour-card data-title="Maldives Honeymoon Escape" data-keywords="maldives honeymoon overwater villa beach global package" data-destination="Maldives" data-category="global" data-days="5" data-price="2890" data-order="12">
+            <div class="relative aspect-4/3 overflow-hidden"><img src="assets/img/optimized/pkg-maldives.webp" alt="Overwater villas beside clear blue tropical water" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /><span class="glass-badge absolute left-3 top-3">Global package</span><span class="rating-note absolute right-3 top-3" aria-label="No verified guest rating yet"><Icon name="star" class="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />Not yet rated</span></div>
+            <div class="flex flex-1 flex-col p-5">
+              <div class="tour-meta"><span><Icon name="clock-3" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />5 days</span><span><Icon name="users" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />2 guests</span><span><Icon name="map-pin" class="h-3.5 w-3.5 text-royal-500" aria-hidden="true" />Maldives</span></div>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug">Maldives Honeymoon Escape</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-500">Island stays matched to your style and budget.</p>
+              <details class="tour-details mt-4 rounded-2xl bg-mist p-4 text-sm text-slate-600"><summary class="flex cursor-pointer items-center justify-between font-semibold text-royal-700">View details <Icon name="chevron-down" class="details-chevron h-4 w-4 transition" aria-hidden="true" /></summary><ul class="mt-3 list-disc space-y-2 pl-4 text-xs leading-relaxed"><li>Resort and room category selected in the quote</li><li>Transfers and meal plans itemised</li><li>Honeymoon extras requested in advance</li></ul></details>
+              <div class="mt-auto flex items-end justify-between gap-3 pt-5"><p class="font-display text-lg font-semibold text-ink"><span data-price="2890">$2,890</span> <span class="text-[11px] font-normal text-slate-500">/ person</span></p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20send%20Maldives%20package%20details." target="_blank" rel="noopener" data-whatsapp="Hello Estnak Tours and Travel, please send details and a quote for the 5-day Maldives Honeymoon Escape." class="btn-green btn-sm"><Icon name="message-circle" class="h-3.5 w-3.5" aria-hidden="true" />Inquire</a></div>
+            </div>
+          </article>
+        </div>
+
+        <div id="tour-empty" hidden class="mt-6 rounded-3xl border border-dashed border-slate-300 bg-mist px-6 py-14 text-center">
+          <Icon name="search-x" class="mx-auto h-8 w-8 text-slate-400" aria-hidden="true" />
+          <h3 class="mt-4 font-display text-xl font-semibold">No tours match those filters</h3>
+          <p class="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate-500">Try another destination, raise your budget or ask for a custom itinerary.</p>
+          <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row"><a href="tours.html" class="btn-outline">Reset filters</a><a href="contact.html#quote" class="btn-primary">Plan a custom trip <Icon name="arrow-right" class="h-4 w-4" aria-hidden="true" /></a></div>
+        </div>
+        <p class="mt-6 text-xs leading-relaxed text-slate-500">Indicative prices, subject to availability. Your written quote confirms inclusions, exclusions and payment terms.</p>
+      </div>
+    </section>
+
+    <section id="tour-starter" class="section bg-mist" aria-labelledby="starter-heading">
+      <div class="container-x grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-16">
+        <div>
+          <p class="eyebrow">Tour Starter</p>
+          <h2 id="starter-heading" class="h2">Build a trip around you.</h2>
+          <p class="lede">Share your route, dates, group and budget. We’ll suggest a starting point.</p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-600"><li class="flex gap-3"><Icon name="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-jade-600" aria-hidden="true" />A route shaped around your priorities</li><li class="flex gap-3"><Icon name="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-jade-600" aria-hidden="true" />Stays matched to your comfort level</li><li class="flex gap-3"><Icon name="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-jade-600" aria-hidden="true" />Clear inclusions and exclusions</li></ul>
+          <a href="contact.html#quote" class="btn-primary mt-7">Start your custom trip <Icon name="arrow-right" class="h-4 w-4" aria-hidden="true" /></a>
+        </div>
+        <div class="rounded-4xl border border-slate-200/80 bg-white p-7 shadow-card sm:p-9">
+          <p class="eyebrow">What to send us</p>
+          <h3 class="mt-4 font-display text-2xl font-semibold">A few details are enough.</h3>
+          <dl class="mt-6 space-y-4 text-sm"><div class="flex gap-3"><dt class="font-semibold text-royal-700">01</dt><dd class="text-slate-600">Destination</dd></div><div class="flex gap-3"><dt class="font-semibold text-royal-700">02</dt><dd class="text-slate-600">Dates or flexible window</dd></div><div class="flex gap-3"><dt class="font-semibold text-royal-700">03</dt><dd class="text-slate-600">Travellers and travel style</dd></div><div class="flex gap-3"><dt class="font-semibold text-royal-700">04</dt><dd class="text-slate-600">Budget per person</dd></div></dl>
+          <a href="https://wa.me/256769532299?text=Hello%20Estnak%20Tours%20and%20Travel%2C%20I%27d%20like%20to%20build%20a%20custom%20trip." target="_blank" rel="noopener" class="btn-green mt-7 w-full"><Icon name="message-circle" class="h-4 w-4" aria-hidden="true" />Start on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="transport" class="section pt-0" aria-labelledby="transport-heading">
+      <div class="container-x">
+        <div class="mx-auto max-w-2xl text-center"><p class="eyebrow">Ground travel</p><h2 id="transport-heading" class="h2">Transport &amp; transfers</h2><p class="lede mx-auto">Airport transfers, safari vehicles and chauffeur-driven rentals.</p></div>
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+          <article class="card overflow-hidden"><div class="aspect-16/9 overflow-hidden"><img src="assets/img/optimized/tour-vehicles.webp" alt="Tour vehicle and travellers preparing for a road journey" width="1000" height="1200" loading="lazy" class="h-full w-full object-cover" /></div><div class="p-6"><h3 class="font-display text-xl font-semibold">Safari &amp; airport transfers</h3><p class="mt-2 text-sm leading-relaxed text-slate-500">A vehicle and driver for your group, luggage and route.</p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20quote%20an%20airport%20transfer." target="_blank" rel="noopener" class="link-arrow mt-5">Request a transfer <Icon name="arrow-up-right" class="h-4 w-4" aria-hidden="true" /></a></div></article>
+          <article class="card overflow-hidden"><div class="aspect-16/9 overflow-hidden"><img src="assets/img/optimized/tour-queen-elizabeth.webp" alt="Safari vehicle beside a river in green grassland" width="1000" height="750" loading="lazy" class="h-full w-full object-cover" /></div><div class="p-6"><h3 class="font-display text-xl font-semibold">Vehicle rental with a driver</h3><p class="mt-2 text-sm leading-relaxed text-slate-500">City, business or multi-day travel, with a vehicle matched to your needs.</p><a href="https://wa.me/256769532299?text=Hello%20Estnak%2C%20please%20quote%20a%20vehicle%20rental." target="_blank" rel="noopener" class="link-arrow mt-5">Ask about rentals <Icon name="arrow-up-right" class="h-4 w-4" aria-hidden="true" /></a></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

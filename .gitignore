@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# Astro output and cache
+dist/
+.astro/
+
 # OS and editor clutter
 .DS_Store
 Thumbs.db

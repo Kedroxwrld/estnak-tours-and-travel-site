@@ -475,6 +475,47 @@ input[type="range"].price-range::-moz-range-thumb {
   transform: rotate(45deg);
 }
 
+/* ---------- Menus and cards ---------- */
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+[data-settings-dropdown] .field-input {
+  font-size: 0.8125rem;
+}
+
+.tour-details summary {
+  list-style: none;
+}
+
+.tour-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.tour-details[open] summary .details-chevron {
+  transform: rotate(180deg);
+}
+
+.tour-meta {
+  @apply flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] text-slate-500;
+}
+
+.tour-meta span {
+  @apply inline-flex items-center gap-1.5;
+}
+
+.rating-note {
+  @apply inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1.5 text-[10px] font-semibold text-ink shadow-sm backdrop-blur;
+}
+
+.map-frame {
+  @apply aspect-4/3 w-full border-0 sm:aspect-16/9;
+}
+
 /* ---------- Misc ---------- */
 .no-scrollbar {
   scrollbar-width: none;
@@ -491,7 +532,8 @@ input[type="range"].price-range::-moz-range-thumb {
 }
 
 .hero-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 0.6px, transparent 0.6px);
+  background-size: 4px 4px;
   opacity: 0.05;
   mix-blend-mode: overlay;
 }

@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const header = readFileSync(resolve(root, "partials/header.html"), "utf8").trimEnd();
 const footer = readFileSync(resolve(root, "partials/footer.html"), "utf8").trimEnd();
+const schema = readFileSync(resolve(root, "partials/schema.html"), "utf8").trimEnd();
 
 const pagesDir = resolve(root, "src/pages");
 const pages = readdirSync(pagesDir).filter((file) => file.endsWith(".html"));
@@ -35,8 +36,9 @@ for (const file of pages) {
   });
 
   html = html.replace(/<!--@footer-->/i, () => footer);
+  html = html.replace(/<!--@schema-->/i, () => schema);
 
-  if (/<!--@(header|footer)/i.test(html)) {
+  if (/<!--@(header|footer|schema)/i.test(html)) {
     console.warn(`! ${file} still contains unresolved partial markers`);
   }
 

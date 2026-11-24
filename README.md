@@ -1,210 +1,94 @@
 # Estnak Tours and Travel
 
-A fast, fully responsive marketing website for a tours and travel company, built with **HTML5**, **Tailwind CSS v4** and **vanilla JavaScript** — no framework and no runtime dependencies.
+A responsive static website built with **Astro**, **TypeScript**, **Tailwind CSS v4** and vanilla browser interactions. Astro emits plain HTML, CSS and JavaScript for fast delivery on any static host.
 
-Estnak Tours and Travel is a Kampala-based brand used to showcase curated safaris, beach escapes, city breaks and cultural journeys across Uganda, East Africa and beyond. The site ships with branded image placeholders so you can drop in your own photography.
+## Requirements
 
-## Pages
+- Node.js 22.23.4 or newer
+- npm 9.6.5 or newer
 
-| Page | File | Purpose |
-| --- | --- | --- |
-| Home | `index.html` | Hero search, travel styles, recommended tours, assistance banner, packages, how it works |
-| Destinations | `destinations.html` | Filterable destination grid by region |
-| Tours & Packages | `tours.html` | 14-tour catalogue with search, filters and sorting; transport and Tour Starter sections |
-| About Us | `about.html` | Story, values, timeline, team and community impact |
-| Contact | `contact.html` | Validated enquiry form, contact details, socials, map and FAQ |
-
-## Quick start
+## Local development
 
 ```bash
-npm install          # install Tailwind CSS build tools
-npm run build        # assemble pages + compile minified CSS
-npm run serve        # optional local preview at http://localhost:3000
+npm install
+npm run dev
 ```
 
-You can also open `index.html` directly in a browser. The compiled stylesheet is committed at `assets/css/styles.css`, so the site works without a build step.
+Open the local URL printed by Astro.
 
-## Deploying to Hostinger automatically
+## Commands
 
-The GitHub Actions workflow in `.github/workflows/hostinger-deploy.yml` builds the site and uploads the finished static files to Hostinger over encrypted FTPS whenever a commit is pushed to `main`. No ZIP files or manual uploads are needed.
-
-### One-time setup
-
-1. In Hostinger hPanel, open your website's FTP account/details. Create or select an FTP account with access to the website's document root. Note the FTP server hostname, username, password and the exact server directory for the website (often `public_html/`; use the path shown by Hostinger for your account).
-2. In GitHub, open this repository's **Settings → Secrets and variables → Actions → New repository secret**. Add:
-   - `HOSTINGER_FTP_SERVER` — the FTP hostname from Hostinger, without `ftp://`.
-   - `HOSTINGER_FTP_USERNAME` — the FTP username.
-   - `HOSTINGER_FTP_PASSWORD` — the FTP password.
-   - `HOSTINGER_SERVER_DIR` — the target directory on the FTP server, including a trailing slash.
-3. Ensure the workflow is enabled under the repository's **Actions** tab and that the deployment branch is `main`.
-4. Push a commit to `main`, or run **Actions → Deploy to Hostinger → Run workflow** to deploy manually.
-
-Edit page sources in `src/pages/`, shared layout in `partials/`, or styles/scripts/assets in their respective folders. The workflow runs `npm ci` and `npm run build`, then uploads the built HTML, `assets/`, `robots.txt` and `sitemap.xml`. Local VS Code edits only reach Hostinger after they are committed and pushed to GitHub; edits made directly on GitHub's `main` branch deploy after that commit too. Changes on another branch deploy after merging into `main`.
-
-The FTP password stays in GitHub Actions secrets and is not stored in the repository. Do not paste it into source files or commit it. The workflow uploads into the configured server directory; ensure it points to the correct website document root before the first run.
-
-### Useful scripts
-
-| Command | What it does |
+| Command | Purpose |
 | --- | --- |
-| `npm run build:html` | Injects the shared header/footer into `src/pages/*.html` and writes the finished pages to the project root |
-| `npm run build:css` | Compiles and minifies `src/input.css` → `assets/css/styles.css` |
-| `npm run build` | Runs both steps in the correct order (HTML first, so Tailwind can scan the output) |
-| `npm run watch:css` | Rebuilds the stylesheet on change while developing |
-| `npm run serve` | Serves the project locally with `npx serve` |
+| `npm run dev` | Start the Astro development server |
+| `npm run check` | Run Astro and TypeScript diagnostics |
+| `npm run build` | Check the project and generate the production site in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run serve` | Alias for the production preview |
 
-> Always run `npm run build` after editing a page or partial. Editing root HTML directly will be overwritten the next time the HTML build runs.
+Generated files in `dist/` and Astro's `.astro/` cache are ignored by Git.
+
+## Pages and URLs
+
+Astro uses file-format output so the existing public URLs remain unchanged:
+
+| Route source | Public URL |
+| --- | --- |
+| `src/pages/index.astro` | `/` |
+| `src/pages/destinations.astro` | `/destinations.html` |
+| `src/pages/tours.astro` | `/tours.html` |
+| `src/pages/about.astro` | `/about.html` |
+| `src/pages/contact.astro` | `/contact.html` |
 
 ## Project structure
 
 ```text
 .
-├─ assets/
-│  ├─ css/styles.css        compiled Tailwind output (committed)
-│  ├─ img/                  image placeholders, logo files and favicon
-│  └─ js/main.js            all site interactions
-├─ partials/
-│  ├─ header.html           shared header, desktop nav and mobile menu
-│  └─ footer.html           shared footer, newsletter, socials and WhatsApp float
-├─ scripts/
-│  ├─ build-html.mjs        zero-dependency page assembler
-│  └─ make-placeholders.ps1 regenerates the branded JPG placeholders
+├─ public/
+│  ├─ assets/img/             logos, favicons and optimized photography
+│  ├─ robots.txt
+│  └─ sitemap.xml
 ├─ src/
-│  ├─ input.css             Tailwind theme, utilities and component styles
-│  └─ pages/*.html          page sources with partial markers
-├─ index.html               built pages
-├─ destinations.html
-├─ tours.html
-├─ about.html
-├─ contact.html
-├─ robots.txt
-└─ sitemap.xml
+│  ├─ components/
+│  │  ├─ SiteHeader.astro
+│  │  └─ SiteFooter.astro
+│  ├─ data/site.ts            typed business details and JSON-LD
+│  ├─ layouts/BaseLayout.astro shared metadata, schema and document shell
+│  ├─ pages/*.astro           the five static routes
+│  ├─ scripts/main.ts         browser interactions
+│  └─ styles/global.css       Tailwind theme and component styles
+├─ astro.config.ts
+├─ tsconfig.json
+└─ package.json
 ```
 
-## Editing pages
+Edit the `.astro` files rather than generated HTML. Shared navigation, footer, SEO tags and JSON-LD are defined once. Tailwind runs through the official `@tailwindcss/vite` plugin during the Astro build.
 
-Each file in `src/pages/` contains two markers:
+## Forms and conversion features
 
-```html
-<!--@header tours-->
-...
-<!--@footer-->
-```
+The contact form validates input and opens WhatsApp with the enquiry prefilled. Nothing is submitted to Estnak until the visitor reviews and sends the message in WhatsApp. The newsletter opens the visitor's email app with a subscription request; the static site does not store newsletter addresses.
 
-`scripts/build-html.mjs` replaces them with the matching partials. The key after `@header` (`home`, `destinations`, `tours`, `about`, `contact`) also adds `aria-current="page"` to the corresponding navigation link.
+The WhatsApp number, email, address, opening hours and social profiles are maintained in the shared components, page content and `src/data/site.ts`. Currency conversions use fixed indicative rates stored in `localStorage`; final quotes are confirmed by the business.
 
-To change the navigation, CTA or footer, edit `partials/header.html` or `partials/footer.html` once and rebuild.
+## Hostinger deployment
 
-## Brand and design system
+`.github/workflows/hostinger-deploy.yml` runs on pushes to `main` or manual dispatch. It installs dependencies with Node.js 24, runs `npm run build`, and uploads `dist/` over FTPS.
 
-The brand theme lives at the top of `src/input.css` using Tailwind v4's `@theme`:
+Configure these GitHub Actions secrets before the first deployment:
 
-- **Estnak blue** (`royal-50` → `royal-950`) — primary brand colour, headers and buttons. The core blue is `#254fe8` with a deep navy `#0b1b4d`.
-- **Estnak green** (`jade-50` → `jade-900`) — highlights, badges, success states and accents. The core green is `#10b981`.
-- **White / mist / slate** — clean backgrounds, borders and secondary text. The `slate-350/400/500` shades are intentionally darker than Tailwind's defaults so small muted text passes WCAG AA contrast on white and mist.
-- **Fonts** — Poppins for display headings, Inter for body copy (Google Fonts with system fallbacks).
+- `HOSTINGER_FTP_SERVER`
+- `HOSTINGER_FTP_USERNAME`
+- `HOSTINGER_FTP_PASSWORD`
+- `HOSTINGER_SERVER_DIR`
 
-Reusable component classes include `.container-x`, `.btn-primary`, `.btn-green`, `.btn-outline`, `.field-input`, `.card`, `.eyebrow`, `.section`, `.link-arrow`, `.footer-link` and the reveal/carousel/filter utilities. Prefer these over one-off utilities so new sections stay consistent.
+Do not commit FTP credentials. Confirm that `HOSTINGER_SERVER_DIR` points to the correct Hostinger document root.
 
-### Logo
+For another static host, use:
 
-The logo is an image, so you can replace it without touching the layout:
-
-| File | Use |
-| --- | --- |
-| `assets/img/logo.svg` | Header and mobile menu (light backgrounds) |
-| `assets/img/logo-light.svg` | Footer (dark background) |
-| `assets/img/favicon.svg` | Browser tab icon |
-
-Replace a file with your own SVG or transparent PNG of the same name. If you use a PNG, either keep the `.svg` filename (not recommended) or update the `src` paths in `partials/header.html`, `partials/footer.html` and the `<link rel="icon">` tags. The header logo is sized with `h-11`/`sm:h-12`; the footer uses `h-12`.
-
-## Images
-
-Every photo in `assets/img/` is a branded placeholder generated for this project. There are no third-party photos or attribution requirements in the template.
-
-### Replace a placeholder in VS Code
-
-1. Open `assets/img/` in the VS Code Explorer.
-2. Find the file you want to replace (for example `hero-serengeti-balloon.jpg`).
-3. Drop your own JPG or WebP over it, keeping the **same filename**.
-4. Keep roughly the same aspect ratio. The recommended size is printed on each placeholder and listed in `assets/img/README.md`.
-
-Because the filenames do not change, no HTML edits are needed. If you prefer different filenames, update the `src` attributes in `src/pages/*.html` and rebuild.
-
-After replacing a photo, update its `alt` text in the page source so it describes the new image. The placeholder alt text describes the intended scene; accurate alt text helps screen-reader users and search engines.
-
-### Image sizes
-
-`assets/img/README.md` contains a table of every image slot, its recommended dimensions and where it is used. Most photos are 1280 px wide; export at up to 1600 px wide and keep each file under about 400 KB for fast loading.
-
-### Regenerate the placeholders
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/make-placeholders.ps1
-```
-
-This overwrites the JPGs in `assets/img/` with fresh branded placeholders. It does not touch the logo files.
-
-## Interactions
-
-`assets/js/main.js` powers:
-
-- Sticky header state, desktop dropdowns and accessible mobile menu
-- Language selector (presentation only — no translations are bundled)
-- Wishlist stored in `localStorage`
-- Scroll-reveal animations and animated stat counters (respects `prefers-reduced-motion`)
-- Hero destination combobox with keyboard support; submits to `tours.html?q=…`
-- Latest packages carousel with previous/next controls
-- Tour search, category/destination/duration/price filters, sorting and empty state
-- Destination region filters and live result count
-- Booking `<dialog>` injected once and shared by every `[data-book]` button
-- Contact form validation, character counter and success state
-- Newsletter validation and toast notifications
-- Back-to-top button
-
-## Connecting the forms
-
-The booking and contact forms currently **simulate** a successful submission in the browser — nothing is sent to a server. To go live, pick one of these approaches:
-
-1. **Form endpoint (simplest)** — create a form on Formspree, Basin, Netlify Forms or your host, then set the `<form>` `action`/`method` and remove the `preventDefault` simulation in `main.js`.
-2. **Serverless function** — POST the `FormData` to an endpoint (Vercel/Netlify/Cloudflare function) that validates input and sends email via Resend, Postmark or SMTP.
-3. **CRM/webhook** — forward the payload to HubSpot, Airtable or a WhatsApp Business API provider.
-
-Keep the existing client-side validation as a first line of defence, and always validate again on the server. Never put API keys in `main.js`.
-
-The booking success panel also offers a pre-filled WhatsApp handoff (`https://wa.me/256700123456`); update that number in `main.js`, `partials/header.html`, `partials/footer.html` and the contact page when the real line is available.
-
-## Customising content
-
-- **Tours** — each card in `src/pages/tours.html` carries `data-title`, `data-country`, `data-category`, `data-days`, `data-price`, `data-rating`, `data-keywords` and `data-order` attributes used by the filters. Keep these in sync with the visible copy and the `[data-book]` button's `data-tour`, `data-price` and `data-meta` values.
-- **Destinations** — add a card with `data-destination-card` and a `data-region` value (`east-africa`, `north-africa`, `europe`, `asia`, `middle-east`) in `src/pages/destinations.html`.
-- **Images** — replace files in `assets/img/` using the same names, or update `src` paths. Keep the `width`/`height` attributes in sync to prevent layout shift.
-- **Brand details** — the phone `+256 700 123 456`, email `info@estnaktoursandtravel.com`, address Plot 12, Kampala Road, Kampala, and domain `https://www.estnaktoursandtravel.com/` are placeholders spread across the partials, page metadata and JSON-LD. Search and replace before launch.
-- **Social links** — the template points to placeholder handles (`estnaktoursandtravel`) on Instagram, Facebook, X and YouTube. Replace them with your real profiles in the header, footer, contact page and home-page JSON-LD.
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **Node version:** 22.23.4 or newer
 
 ## SEO and accessibility
 
-- Semantic landmarks (`header`, `nav`, `main`, `section`, `article`, `footer`), one `<h1>` per page and ordered headings.
-- Unique titles, descriptions, canonical URLs, Open Graph/Twitter cards and JSON-LD (`TravelAgency`, `AboutPage`, `ContactPage`, `BreadcrumbList`).
-- `sitemap.xml` and `robots.txt` are included.
-- Skip link, visible focus styles, labelled form fields, `aria-live` status messages, keyboard-operable menus, dialog and combobox.
-- Motion is disabled under `prefers-reduced-motion: reduce`.
-- Update the domain in canonical/OG tags, JSON-LD, `sitemap.xml` and `robots.txt` before deployment.
-
-## Deployment
-
-The output is plain static files. Upload the repository root (excluding `node_modules/` and `src/`) to Netlify, Vercel, Cloudflare Pages, GitHub Pages or any static host.
-
-Typical build settings:
-
-- **Build command:** `npm run build`
-- **Output directory:** `.` (project root)
-- **Node version:** 20 or newer
-
-## Browser support
-
-Modern evergreen browsers (Chrome, Edge, Firefox, Safari). The site uses native `<dialog>`, CSS custom properties, `:has()`-free selectors and `localStorage`; JavaScript enhancements degrade gracefully where possible.
-
-## Licence
-
-Site code and copy © Estnak Tours and Travel. The included photos are generated placeholders and may be replaced with your own licensed imagery. This is a demonstration project — replace placeholder contact details, legal copy and imagery before commercial use.
+The shared layout manages unique titles, descriptions, canonical URLs, Open Graph/Twitter cards and TravelAgency/TourOperator JSON-LD. Each page has one H1, semantic landmarks, descriptive image alt text, a skip link, keyboard-operable controls and reduced-motion support.

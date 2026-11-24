@@ -2,27 +2,35 @@
   "name": "estnak-tours-and-travel",
   "version": "1.0.0",
   "private": true,
-  "description": "Estnak Tours and Travel — a responsive tours and travel website built with HTML5, Tailwind CSS and vanilla JavaScript.",
+  "description": "Estnak Tours and Travel — a responsive static website built with Astro, TypeScript and Tailwind CSS.",
   "type": "module",
   "scripts": {
-    "build:html": "node scripts/build-html.mjs",
-    "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/styles.css --minify",
-    "build": "npm run build:html && npm run build:css",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/css/styles.css --watch",
-    "serve": "npx --yes serve ."
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "serve": "astro preview"
   },
   "keywords": [
     "tours",
     "travel",
     "uganda",
     "safari",
+    "astro",
+    "typescript",
     "tailwindcss",
     "static-site"
   ],
   "author": "Estnak Tours and Travel",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@tailwindcss/cli": "^4.3.3",
-    "tailwindcss": "^4.3.3"
+    "@astrojs/check": "^0.9.12",
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^7.4.13",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "lucide": "^0.468.0"
   }
 }

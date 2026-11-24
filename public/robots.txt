@@ -1,0 +1,5 @@
+# Estnak Tours and Travel — robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.estnaktoursandtravel.com/sitemap.xml

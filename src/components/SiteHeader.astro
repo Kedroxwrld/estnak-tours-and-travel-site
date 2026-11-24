@@ -1,0 +1,146 @@
+---
+import Icon from "./Icon.astro";
+import type { ActivePage } from "../data/site";
+
+interface Props {
+  activePage: ActivePage;
+}
+
+const { activePage } = Astro.props;
+const current = (page: ActivePage) => (activePage === page ? "page" : undefined);
+---
+
+<!-- Utility bar -->
+<aside aria-label="Contact and social links" class="hidden bg-royal-950 text-white/75 sm:block">
+  <div class="container-x flex h-9 items-center justify-between gap-4 text-[11px]">
+    <div class="flex min-w-0 items-center gap-5">
+      <span class="inline-flex min-w-0 items-center gap-1.5">
+        <Icon name="map-pin" class="h-3.5 w-3.5 shrink-0 text-jade-400" aria-hidden="true" />
+        <span class="truncate">Civic Centre, Christ The King, Kampala GPO</span>
+      </span>
+      <a href="tel:+256769532299" class="inline-flex shrink-0 items-center gap-1.5 transition hover:text-white">
+        <Icon name="phone" class="h-3.5 w-3.5 text-jade-400" aria-hidden="true" />
+        0769 532299
+      </a>
+      <a href="mailto:estnaktoursandtravel@gmail.com" class="hidden items-center gap-1.5 transition hover:text-white lg:inline-flex">
+        <Icon name="mail" class="h-3.5 w-3.5 text-jade-400" aria-hidden="true" />
+        estnaktoursandtravel@gmail.com
+      </a>
+    </div>
+    <div class="flex shrink-0 items-center gap-3">
+      <span class="hidden text-white/60 xl:inline">Follow the journey</span>
+      <a href="https://www.instagram.com/estnaktoursandtravel" target="_blank" rel="noopener" aria-label="Estnak Tours and Travel on Instagram" class="transition hover:text-white"><Icon name="instagram" class="h-3.5 w-3.5" aria-hidden="true" /></a>
+      <a href="https://www.facebook.com/estnaktoursandtravel" target="_blank" rel="noopener" aria-label="Estnak Tours and Travel on Facebook" class="transition hover:text-white"><Icon name="facebook" class="h-3.5 w-3.5" aria-hidden="true" /></a>
+      <a href="https://x.com/estnaktoursandtravel" target="_blank" rel="noopener" aria-label="Estnak Tours and Travel on X" class="transition hover:text-white"><Icon name="twitter" class="h-3.5 w-3.5" aria-hidden="true" /></a>
+    </div>
+  </div>
+</aside>
+
+<!-- Header -->
+<header id="site-header" class="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-md">
+  <div class="container-x flex h-18.5 items-center justify-between gap-4">
+    <a href="index.html" class="flex shrink-0 items-center" aria-label="Estnak Tours and Travel — home">
+      <img src="assets/img/estnak%20logo.svg" alt="Estnak Tours and Travel" width="200" height="75" class="h-11 w-auto sm:h-13" />
+    </a>
+
+    <nav class="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
+      <a href="index.html" class="nav-link" data-nav-link="home" aria-current={current("home")}>Home</a>
+      <a href="destinations.html" class="nav-link" data-nav-link="destinations" aria-current={current("destinations")}>Services</a>
+      <a href="tours.html" class="nav-link" data-nav-link="tours" aria-current={current("tours")}>Uganda &amp; Africa Safaris</a>
+      <a href="tours.html?category=global" class="nav-link" data-global-link>Global Packages</a>
+      <a href="about.html" class="nav-link" data-nav-link="about" aria-current={current("about")}>About Us</a>
+      <a href="contact.html" class="nav-link" data-nav-link="contact" aria-current={current("contact")}>Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <details class="relative hidden xl:block" data-settings-dropdown>
+        <summary class="flex h-10 cursor-pointer list-none items-center gap-1.5 rounded-full border border-slate-200 px-3 text-xs font-semibold text-slate-600 transition hover:border-royal-200 hover:text-royal-700">
+          <Icon name="globe-2" class="h-3.5 w-3.5" aria-hidden="true" />
+          <span data-lang-label>EN</span>
+          <Icon name="chevron-down" class="h-3 w-3" aria-hidden="true" />
+        </summary>
+        <div class="absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border border-slate-100 bg-white p-4 shadow-lift">
+          <label for="desktop-currency" class="field-label">Currency</label>
+          <select id="desktop-currency" data-currency class="field-input cursor-pointer py-2.5">
+            <option value="USD">USD — US Dollar</option>
+            <option value="UGX">UGX — Ugandan Shilling</option>
+            <option value="EUR">EUR — Euro</option>
+            <option value="GBP">GBP — British Pound</option>
+          </select>
+          <label for="desktop-language" class="field-label mt-3">Language</label>
+          <select id="desktop-language" data-language class="field-input cursor-pointer py-2.5">
+            <option value="EN">English</option>
+            <option value="FR" disabled>Français — soon</option>
+            <option value="SW" disabled>Kiswahili — soon</option>
+            <option value="DE" disabled>Deutsch — soon</option>
+          </select>
+          <p class="mt-2 text-[11px] leading-relaxed text-slate-500">Indicative rates. Final quotes are in USD.</p>
+        </div>
+      </details>
+
+      <a href="contact.html#quote" class="btn-primary btn-sm hidden sm:inline-flex">
+        Book a Trip
+        <Icon name="arrow-right" class="h-3.5 w-3.5" aria-hidden="true" />
+      </a>
+
+      <button type="button" data-menu-toggle class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-ink transition hover:border-royal-200 hover:bg-royal-50 xl:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <Icon name="menu" class="h-5 w-5" aria-hidden="true" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" aria-hidden="true" inert>
+  <div class="menu-overlay" aria-hidden="true"></div>
+  <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div class="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+      <a href="index.html" class="flex items-center" aria-label="Estnak Tours and Travel — home">
+        <img src="assets/img/estnak%20logo.svg" alt="Estnak Tours and Travel" width="200" height="75" class="h-11 w-auto" />
+      </a>
+      <button type="button" data-menu-close class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition hover:bg-slate-50 hover:text-ink" aria-label="Close menu">
+        <Icon name="x" class="h-5 w-5" aria-hidden="true" />
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-5 py-6">
+      <nav aria-label="Mobile primary" class="flex flex-col">
+        <a href="index.html" class="flex items-center justify-between border-b border-slate-100 py-3.5 font-display text-base font-semibold text-ink" data-nav-link="home" aria-current={current("home")}>Home <Icon name="chevron-right" class="h-4 w-4 text-slate-300" aria-hidden="true" /></a>
+        <a href="destinations.html" class="flex items-center justify-between border-b border-slate-100 py-3.5 font-display text-base font-semibold text-ink" data-nav-link="destinations" aria-current={current("destinations")}>Services <Icon name="chevron-right" class="h-4 w-4 text-slate-300" aria-hidden="true" /></a>
+        <a href="tours.html" class="flex items-center justify-between border-b border-slate-100 py-3.5 font-display text-base font-semibold text-ink" data-nav-link="tours" aria-current={current("tours")}>Uganda &amp; Africa Safaris <Icon name="chevron-right" class="h-4 w-4 text-slate-300" aria-hidden="true" /></a>
+        <a href="tours.html?category=global" class="flex items-center justify-between border-b border-slate-100 py-3.5 font-display text-base font-semibold text-ink" data-global-link>Global Packages <Icon name="chevron-right" class="h-4 w-4 text-slate-300" aria-hidden="true" /></a>
+        <a href="about.html" class="flex items-center justify-between border-b border-slate-100 py-3.5 font-display text-base font-semibold text-ink" data-nav-link="about" aria-current={current("about")}>About Us <Icon name="chevron-right" class="h-4 w-4 text-slate-300" aria-hidden="true" /></a>
+        <a href="contact.html" class="flex items-center justify-between border-b border-slate-100 py-3.5 font-display text-base font-semibold text-ink" data-nav-link="contact" aria-current={current("contact")}>Contact <Icon name="chevron-right" class="h-4 w-4 text-slate-300" aria-hidden="true" /></a>
+      </nav>
+
+      <div class="mt-5 grid gap-3 rounded-2xl bg-mist p-4 sm:grid-cols-2">
+        <div>
+          <label for="mobile-currency" class="field-label">Currency</label>
+          <select id="mobile-currency" data-currency class="field-input cursor-pointer bg-white py-2.5">
+            <option value="USD">USD</option>
+            <option value="UGX">UGX</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+        <div>
+          <label for="mobile-language" class="field-label">Language</label>
+          <select id="mobile-language" data-language class="field-input cursor-pointer bg-white py-2.5">
+            <option value="EN">English</option>
+            <option value="FR" disabled>Français — soon</option>
+            <option value="SW" disabled>Kiswahili — soon</option>
+            <option value="DE" disabled>Deutsch — soon</option>
+          </select>
+        </div>
+      </div>
+
+      <a href="contact.html#quote" class="btn-primary mt-5 w-full">Book a Trip <Icon name="arrow-right" class="h-4 w-4" aria-hidden="true" /></a>
+
+      <div class="mt-7 space-y-3 text-sm">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Speak with our team</p>
+        <a href="tel:+256769532299" class="flex items-center gap-3 font-medium text-ink"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-royal-50 text-royal-700"><Icon name="phone" class="h-4 w-4" aria-hidden="true" /></span>0769 532299</a>
+        <a href="https://wa.me/256769532299" target="_blank" rel="noopener" class="flex items-center gap-3 font-medium text-ink"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-jade-50 text-jade-700"><Icon name="message-circle" class="h-4 w-4" aria-hidden="true" /></span>WhatsApp us</a>
+        <a href="mailto:estnaktoursandtravel@gmail.com" class="flex items-center gap-3 font-medium text-ink"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-royal-50 text-royal-700"><Icon name="mail" class="h-4 w-4" aria-hidden="true" /></span>estnaktoursandtravel@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</div>

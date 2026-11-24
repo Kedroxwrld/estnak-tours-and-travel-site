@@ -1,0 +1,89 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { site, siteSchema, type ActivePage } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+  activePage: ActivePage;
+  title: string;
+  description: string;
+  keywords: string;
+  canonical: string;
+  ogImage: string;
+  ogImageAlt: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  themeColor?: string;
+  additionalSchema?: Record<string, unknown>;
+}
+
+const {
+  activePage,
+  title,
+  description,
+  keywords,
+  canonical,
+  ogImage,
+  ogImageAlt,
+  ogImageWidth,
+  ogImageHeight,
+  themeColor = "#0D2B3E",
+  additionalSchema,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-pt-24">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={site.name} />
+    <meta name="theme-color" content={themeColor} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    {ogImageWidth && <meta property="og:image:width" content={String(ogImageWidth)} />}
+    {ogImageHeight && <meta property="og:image:height" content={String(ogImageHeight)} />}
+    <meta property="og:locale" content="en_UG" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <link rel="icon" href="/assets/img/estnak%20logo.svg" type="image/svg+xml" />
+    <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <slot name="head" />
+    <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
+    {additionalSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(additionalSchema)} />
+    )}
+  </head>
+  <body class="bg-white">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-royal-700 focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+    >
+      Skip to content
+    </a>
+
+    <SiteHeader activePage={activePage} />
+    <slot />
+    <SiteFooter />
+
+    <script>
+      import "../scripts/main.ts";
+    </script>
+  </body>
+</html>

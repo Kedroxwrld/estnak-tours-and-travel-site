@@ -23,19 +23,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
-      - name: Build website
+      - name: Check and build website
         run: |
           npm ci
           npm run build
-
-      - name: Prepare Hostinger files
-        run: |
-          mkdir -p _site
-          cp about.html contact.html destinations.html index.html tours.html robots.txt sitemap.xml _site/
-          cp -R assets _site/assets
 
       - name: Deploy files over FTPS
         uses: SamKirkland/FTP-Deploy-Action@110f9186c050f71550953127052e77650219c287 # v4.4.0
@@ -45,5 +39,5 @@ jobs:
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          local-dir: ./_site/
+          local-dir: ./dist/
           server-dir: ${{ secrets.HOSTINGER_SERVER_DIR }}
