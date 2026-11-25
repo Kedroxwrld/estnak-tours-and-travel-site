@@ -89,6 +89,12 @@ For another static host, use:
 - **Output directory:** `dist`
 - **Node version:** 22.23.4 or newer
 
+## GitHub Pages deployment
+
+`.github/workflows/deploy-pages.yml` builds and deploys the site to GitHub Pages on pushes to `main` or manual dispatch. The project is configured for the repository URL, `https://kedroxwrld.github.io/estnak-tours-and-travel-site/`, without changing the existing Hostinger domain.
+
+In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The first successful workflow run publishes the site.
+
 ## SEO and accessibility
 
 The shared layout manages unique titles, descriptions, canonical URLs, Open Graph/Twitter cards and TravelAgency/TourOperator JSON-LD. Each page has one H1, semantic landmarks, descriptive image alt text, a skip link, keyboard-operable controls and reduced-motion support.

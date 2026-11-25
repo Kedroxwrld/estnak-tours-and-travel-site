@@ -10,7 +10,7 @@
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url("/assets/fonts/inter-latin.woff2") format("woff2");
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
 }
 
 @font-face {
@@ -18,7 +18,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("/assets/fonts/poppins-500-latin.woff2") format("woff2");
+  src: url("../assets/fonts/poppins-500-latin.woff2") format("woff2");
 }
 
 @font-face {
@@ -26,7 +26,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("/assets/fonts/poppins-600-latin.woff2") format("woff2");
+  src: url("../assets/fonts/poppins-600-latin.woff2") format("woff2");
 }
 
 @font-face {
@@ -34,7 +34,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/assets/fonts/poppins-700-latin.woff2") format("woff2");
+  src: url("../assets/fonts/poppins-700-latin.woff2") format("woff2");
 }
 
 /* Estnak Tours and Travel palette, sampled from the original logo. */

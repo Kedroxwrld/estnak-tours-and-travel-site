@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout
@@ -18,8 +21,8 @@ import Icon from "../components/Icon.astro";
     slot="head"
     rel="preload"
     as="image"
-    href="/assets/img/optimized/hero-safari-960.webp"
-    imagesrcset="/assets/img/optimized/hero-safari-960.webp 960w, /assets/img/optimized/hero-safari-1600.webp 1600w, /assets/img/optimized/hero-safari.webp 1920w"
+    href={`${baseUrl}assets/img/optimized/hero-safari-960.webp`}
+    imagesrcset={`${baseUrl}assets/img/optimized/hero-safari-960.webp 960w, ${baseUrl}assets/img/optimized/hero-safari-1600.webp 1600w, ${baseUrl}assets/img/optimized/hero-safari.webp 1920w`}
     imagesizes="100vw"
     fetchpriority="high"
   />
